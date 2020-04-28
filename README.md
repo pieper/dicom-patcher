@@ -4,7 +4,7 @@ A python script to run [Slicer's DICOMPatcher](https://slicer.readthedocs.io/en/
 ## Example
 ```
 export SLICER=/Applications/Slicer-2020-04-12.app/Contents/MacOS/Slicer
-$SLICER --no-main-window --python-script ~/slicer/latest/SlicerMorph/patch.py -- --same-names --normalize --input dicom_data --output dicom_data-patched/
+$SLICER --no-main-window --python-script ~/slicer/latest/SlicerMorph/dicom-patcher.py -- --same-names --normalize --input dicom_data --output dicom_data-patched/
 ```
 ## Usage
 ```
