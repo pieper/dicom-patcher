@@ -1,12 +1,38 @@
-# dicom-patcher
+# Slicer DICOM CLIs
+Some command line utility scripts that use Slicer's DICOM infrasturcture.
+
+## dicom-to-nrrd
+A python script to use [Slicer's DICOM tools](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM) to convert a directory of dicom files to nrrd. Exits with error code if files don't convert to exactly one nrrd file.
+
+### Example
+```
+export SLICER=/Applications/Slicer-2020-04-12.app/Contents/MacOS/Slicer
+$SLICER --no-main-window --python-script dicom-to-nrrd.py -- --input dicom_data --output file.nrrd
+```
+### Usage
+```
+usage: dicom-to-nrrd.py [-h] [--dcmtk] [--gdcm] [--no-quit] [--input INPUT]
+                        [--output OUTPUT]
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --dcmtk          use dcmtk to parse dicom (exclusive with --gdcm)
+  --gdcm           use dcmtk to parse dicom (exclusive with --dcmtk)
+  --no-quit        For debugging, don't exit Slicer after converting
+  --input INPUT    Input DICOM directory
+  --output OUTPUT  Where to write nrrd file
+```
+
+
+## dicom-patcher
 A python script to run [Slicer's DICOMPatcher](https://slicer.readthedocs.io/en/latest/user_guide/module_dicompatcher.html) from the command line
 
-## Example
+### Example
 ```
 export SLICER=/Applications/Slicer-2020-04-12.app/Contents/MacOS/Slicer
 $SLICER --no-main-window --python-script ~/slicer/latest/SlicerMorph/dicom-patcher.py -- --same-names --normalize --input dicom_data --output dicom_data-patched/
 ```
-## Usage
+### Usage
 ```
 usage: dicom-patcher.py [-h] [--normalize] [--same-names] [--generate-missing]
                         [--position-from-thickness] [--partially-anonymize]
